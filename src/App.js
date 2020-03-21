@@ -1,17 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MainPage from './Components/MainPage'
+import NewEmployee from './Components/NewEmployee'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+} from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Employee Time System
-      </header>
-      <button className="Login-button"> Login </button>
-      <button className="Login-button"> New Account </button>
-    </div>
-  );
+     <Router>
+       <Switch>
+         <Route path="/new-account">
+           <NewEmployee />
+         </Route>
+         <Route path="/">
+           <MainPage />
+         </Route>
+       </Switch>
+   </Router>
+ );
 }
 
 export default App;

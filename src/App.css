@@ -30,6 +30,7 @@
   background-color: lightslategray;
   color: white;
   font-weight: bold;
+  outline: none;
 }
 
 .App-link {
