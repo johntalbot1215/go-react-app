@@ -9,5 +9,6 @@ const MainPage = () =>
             Employee Time System
       </header>
         <Link to='new-account'> <button className="Login-button"> New Account </button></Link> 
+        <Link to='login'> <button className="Login-button"> Login </button></Link> 
     </div>
 export default MainPage;

@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import MainPage from './Components/MainPage'
-import NewEmployee from './Components/NewEmployee'
+import NewAccount from './Components/NewAccount'
+import Login from './Components/Login'
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,7 +15,10 @@ function App() {
      <Router>
        <Switch>
          <Route path="/new-account">
-           <NewEmployee />
+           <NewAccount />
+         </Route>
+         <Route path="/login">
+           <Login />
          </Route>
          <Route path="/">
            <MainPage />

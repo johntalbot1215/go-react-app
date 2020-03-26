@@ -19,6 +19,7 @@ func main() {
 	// Routes
 	e.GET("/", hello)
 	e.POST("/new-account", handleNewAccount)
+	e.POST("/login", handleLookupAccount)
 
 	// Start server
 	e.Logger.Fatal(e.Start(":8080"))
@@ -37,11 +38,25 @@ func hello(c echo.Context) error {
 func handleNewAccount(c echo.Context) error {
 	a := new(Account)
 	if err := c.Bind(a); err != nil {
-		fmt.Println("Err", err)
-		return c.String(http.StatusBadRequest, "Error")
+		fmt.Println("New Account Error", err)
+		return c.String(http.StatusBadRequest, err.Error())
 	}
-	fmt.Println(a)
-	err := InsertAccount(a)
+	fmt.Println("Query")
+	err := insertAccount(a)
+	if err != nil {
+		return c.String(500, err.Error())
+	}
+	return c.String(http.StatusOK, "ok")
+}
+
+func handleLookupAccount(c echo.Context) error {
+	a := new(Account)
+	if err := c.Bind(a); err != nil {
+		fmt.Println(err)
+		fmt.Println("Account Lookup Error")
+		return c.String(http.StatusBadRequest, err.Error())
+	}
+	err := lookupAccount(a)
 	if err != nil {
 		return c.String(500, err.Error())
 	}
