@@ -1,3 +1,20 @@
+# Golang React App
+Timekeeping app written with Golang backend, MySQL database and a functional style React frontend.
+Features:
+    - New Account creation
+    - Login
+    - Bi-Weekly Timeentry with validation
+## Setup
+    Run npm install
+    Run go build
+    Brew install brew install golang-migrate
+        -Run migrations with tool `migrate -source <path-to-migrations> -database <dburl> (up|down)
+        -Example MySQL connection string "mysql://root:@tcp/timetrack"
+    Pull mysql docker image and run
+      - docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true mysql
+      - mysql -h localhost -P 3306 --protocol=tcp -u root
+    
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

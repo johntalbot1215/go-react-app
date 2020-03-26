@@ -41,5 +41,9 @@ func handleNewAccount(c echo.Context) error {
 		return c.String(http.StatusBadRequest, "Error")
 	}
 	fmt.Println(a)
+	err := InsertAccount(a)
+	if err != nil {
+		return c.String(500, err.Error())
+	}
 	return c.String(http.StatusOK, "ok")
 }
